@@ -7,13 +7,13 @@
 }
 
 html, body {
+  margin: 0;
+  padding: 0;
   height: 100%;
   direction: rtl;
 }
 
 body {
-  background-image: linear-gradient(to right, #e6eef6, #ffffff);
-  padding: 20px;
 }
 
 ul {
@@ -73,11 +73,18 @@ a {
   font-style: normal;
 }
 
+.content-body {
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(to right, #e6eef6, #ffffff);
+}
+
 .navbar-expand-lg {
   -ms-flex-flow: row nowrap;
   flex-flow: row nowrap;
   -ms-flex-pack: start;
   justify-content: flex-start;
+
 }
 
 .navbar {
@@ -210,6 +217,10 @@ a {
 .nav-link {
   display: block;
   padding: .5rem 1rem;
+  line-height: 25px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 400;
 }
 
 .navbar-expand-lg .navbar-nav {
@@ -272,7 +283,10 @@ a {
 #footer-design {
   direction: ltr;
   color: #999898;
-  left: 0px;
+  font-family: Arial !important;
+  line-height: 25px;
+  font-size: 12px;
+  font-weight: 400;
 }
 
 .btn {
@@ -287,7 +301,10 @@ a {
   transition: all 0.2s;
   vertical-align: middle;
   text-decoration: none;
-  font-size: 14pt;
+  line-height: 25px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 400;
 }
 
 .btn:hover {
@@ -300,6 +317,13 @@ a {
   text-align: justify;
 }
 
+.img-index-book {
+  width: 267px;
+  height: 324px;
+  box-shadow: 0px 0px 0px 0px rgba(196, 196, 196, 0.64);
+  border-radius: 20px;
+}
+
 .content-item {
   display: inline-flex;
 
@@ -309,6 +333,146 @@ a {
   margin: 0 auto;
   margin-right: 80px;
 }
-.content-item pre{
-  line-height: 1.6;
+
+.content-item pre {
+  line-height: 28px;
+  font-size: 16px;
+  text-align: right;
+  font-weight: 400;
+}
+
+/*fal*/
+
+.fal-content-body {
+  width: 100%;
+  height: 100%;
+  background: url('../../image/fal-bg.png') no-repeat;
+  /*background-size: contain;*/
+
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center
+}
+
+.fal-part {
+  position: absolute;
+  width: 467px;
+  height: 614.04px;
+  right: 50px;
+  top: 60px;
+
+  background: rgba(236, 210, 118, 0.8);
+  border-radius: 15px;
+}
+
+.fal-ghazal-number-part {
+  position: absolute;
+  width: 436px;
+  height: 290px;
+  right: 18px;
+  top: 20px;
+
+  background: #FFFFFF;
+  border-radius: 15px;
+}
+
+.fal-ghazal-number-lbl {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  right: 150px;
+  top: 15px;
+
+  font-family: A Rezvan;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: right;
+  letter-spacing: 0.04em;
+}
+
+.fal-ghazal-number-text {
+  position: absolute;
+  width: 350px;
+  height: 205px;
+
+  right: 150px;
+  top: 50px;
+}
+
+.fal-ghazal-music-prat {
+  position: absolute;
+  width: 180px;
+  height: 30px;
+  right: 125px;
+  top: 250px;
+
+  background: rgba(239, 239, 239, 0.8);
+  border: 1px solid #E5E5E5;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+
+.fal-ghazal-text-part {
+  position: absolute;
+  width: 436px;
+  height: 212px;
+  right: 18px;
+  top: 330px;
+
+  background: #FFFFFF;
+  border-radius: 15px;
+}
+
+.fal-ghazal-text-lbl {
+  position: absolute;
+  width: 100px;
+  height: 20px;
+  right: 20px;
+  top: 40px;
+
+  font-family: A Rezvan;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  text-align: right;
+  letter-spacing: 0.04em;
+
+  color: #171717;
+}
+
+.fal-ghazal-text {
+  position: absolute;
+  width: 350px;
+  height: 70px;
+  right: 20px;
+  top: 80px;
+
+  font-family: A Rezvan;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 5pt;
+  line-height: 20px;
+  /* or 154% */
+
+  text-align: right;
+  letter-spacing: 0.04em;
+}
+
+.fal-ghazal-text pre {
+  width: 350px;
+  height: 70px;
+}
+
+.fal-btn {
+  position: absolute;
+  width: 150px;
+  height: 40px;
+  right: 150px;
+  top: 560px;
+
+  background: #DFE9F3;
+  border-radius: 10px 0px;
 }
