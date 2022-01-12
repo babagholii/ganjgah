@@ -2,7 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: gol;
+  font-family: Rezvan;
+  font-size: 14pt;
 }
 
 html, body {
@@ -40,6 +41,15 @@ a {
   color: var(--link-color);
   font-weight: normal;
   text-decoration: none;
+}
+
+@font-face {
+  font-family: Rezvan;
+  font-style: normal;
+  font-weight: normal;
+  src: url('../../asset/font/Rezvan.eot?#') format('eot'),
+  url('../../asset/font/Rezvan.ttf') format('truetype'),
+  url('../../asset/font/Rezvan.woff') format('woff');
 }
 
 @font-face {
@@ -277,7 +287,7 @@ a {
   transition: all 0.2s;
   vertical-align: middle;
   text-decoration: none;
-  font-size: 10pt;
+  font-size: 14pt;
 }
 
 .btn:hover {
@@ -298,4 +308,7 @@ a {
   width: 80%;
   margin: 0 auto;
   margin-right: 80px;
+}
+.content-item pre{
+  line-height: 1.6;
 }

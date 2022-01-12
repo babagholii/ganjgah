@@ -50,7 +50,7 @@
   <div class="content-item">
     <img src="image/index-book.png" style="width: 300px">
 
-    <div style="display: inline-block; margin-right: 15px">
+    <div style="display: inline-block; margin-right: 10px">
       <pre class="block-justify" style="padding: 8px; margin-top: 25px;">
 تاریخ کهن ایران زمین با پیشینه ای غنی از فرهنگ و هنر، از دیرباز با شعر و ادبیات در هم
 پیجیده و ایران، مهد پرورش شاعران بزرگی بوده و درگیر و دار فراز و نشیب هایی که در طول
@@ -60,7 +60,7 @@
       </pre>
 
       <div style="text-align: center">
-        <button id="btn-login" type="submit" class="btn" name="btn-submit" style="vertical-align: middle;">فال حافظ</button>
+        <button id="btn-login" type="submit" class="btn" name="btn-submit" style="vertical-align: middle; margin-left: 10px">فال حافظ</button>
         <button id="btn-login" type="submit" class="btn" name="btn-submit" style="vertical-align: middle;">گنجینه اشعار</button>
       </div>
     </div>
