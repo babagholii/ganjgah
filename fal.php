@@ -24,7 +24,7 @@
 
         <div id="div-fal-ghazal-number-text" class="fal-ghazal-number-text">
           <span id="fal-ghazal-text-verse-odd">مصرع اول</span>
-          <span id="fal-ghazal-text-verse-odd">مصرع دم</span>
+          <span id="fal-ghazal-text-verse-even">مصرع دم</span>
         </div>
 
         <div class="fal-ghazal-music-prat"></div>
@@ -36,9 +36,7 @@
         </div>
 
         <div class="fal-ghazal-text">
-          <div id="fal-ghazal-text-htmlExcerpt">
-
-          </div>
+          <div id="fal-ghazal-text-htmlExcerpt"></div>
         </div>
       </div>
 

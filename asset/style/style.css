@@ -403,9 +403,6 @@ a {
   text-align: center;
 }
 
-#fal-ghazal-text-verse-even, #fal-ghazal-text-verse-odd  {
-}
-
 #fal-ghazal-text-verse-odd  {
   /*position: absolute;*/
   width: 180px;
@@ -424,7 +421,6 @@ a {
   float: right;
   text-align: right;
 }
-
 
 #fal-ghazal-text-verse-even  {
   /*position: absolute;*/
@@ -520,4 +516,164 @@ a {
 
   background: #DFE9F3;
   border-radius: 10px 0px;
+}
+
+/*detail-ganjoor*/
+
+.detail-ganjoor-content-body {
+  width: 100%;
+  height: 100%;
+  background: url('../../image/detail-ganjoor-bg.png') no-repeat;
+  /*background-size: contain;*/
+
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+.detail-ganjoor-right-image {
+  width: 200px;
+  height: 200px;
+  box-shadow: 0px 0px 0px 0px rgba(196, 196, 196, 0.64);
+}
+
+#detail-ganjoor-poet-image {
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  left: 680px;
+  top: 20px;
+
+  filter: drop-shadow(0px 5px 4px rgba(183, 183, 183, 0.87));
+  border-radius: 15px;
+  z-index: 1000;
+}
+
+.detail-ganjoor-ghazal-text-part1 {
+  position: absolute;
+  width: 830px;
+  height: 420px;
+  left: -23px;
+  top: 146px;
+
+  background: #F5D36F;
+  border: 1px solid #F4BB13;
+  box-sizing: border-box;
+  z-index: 1000;
+}
+
+.detail-ganjoor-ghazal-text-part2 {
+  position: absolute;
+  width: 680px;
+  height: 343px;
+  left: 71px;
+  top: 40px;
+
+  background: #FFFFFF;
+  border-radius: 20px;
+}
+
+.detail-ganjoor-ghazal-number-part {
+  position: absolute;
+  width: 109px;
+  height: 18px;
+  left: 300px;
+  top: 30px;
+  font-family: A Rezvan;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  letter-spacing: 0.04em;
+
+  color: #171717;
+}
+
+.detail-ganjoor-ghazal-text-part {
+  position: absolute;
+  width: 420px;
+  height: 205px;
+
+  left: 60px;
+  top: 70px;
+
+  text-align: center;
+}
+
+#detail-ganjoor-ghazal-text-verse-odd  {
+  /*position: absolute;*/
+  width: 180px;
+  height: 18px;
+  right: 20px;
+  top: 10px;
+
+  font-family: A Rezvan;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+
+  color: #171717;
+  float: right;
+  text-align: right;
+}
+
+
+#detail-ganjoor-ghazal-text-verse-even  {
+  /*position: absolute;*/
+  width: 180px;
+  height: 18px;
+  right: 878px;
+  top: 133px;
+
+  font-family: A Rezvan;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 14px;
+
+  margin-right: 50px;
+  color: #171717;
+
+  float: right;
+  text-align: right;
+}
+
+.detail-ganjoor-available-update-image {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  left: 780px;
+  top: 370px;
+}
+
+.detail-ganjoor-meaning-text-part {
+  position: absolute;
+  width: 100%;
+  height: 292px;
+  left: 777px;
+  top: 259px;
+
+  background: rgba(208, 227, 245, 0.5);
+  border: 1px solid #99C4EF;
+  box-sizing: border-box;
+}
+
+#detail-ganjoor-meaning-text {
+  position: absolute;
+  /*width: 20%;*/
+  height: 243px;
+  right: 20px;
+  top: 20px;
+
+  font-family: A Rezvan;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 20px;
+  /* or 186% */
+
+  text-align: right;
+  color: #171717;
 }
