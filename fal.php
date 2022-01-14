@@ -12,6 +12,7 @@
 
   <link rel="stylesheet" href="asset/style/style.css">
   <!--  <script src="--><? //= baseUrl() ?><!--/theme/page-home/asset/js/custom.js"></script>-->
+  <script src="asset/js/jquery-3.6.0.min.js"></script>
 
 </head>
 <body>
@@ -19,12 +20,11 @@
   <div class="fal-content">
     <div class="fal-part">
       <div class="fal-ghazal-number-part">
-        <div class="fal-ghazal-number-lbl"><span>غزل شماره </span><span>28</span><span> :</span></div>
+        <div class="fal-ghazal-number-lbl"><span id="fal-ghazal-title">غزل شماره </span><span> :</span></div>
 
-        <div class="fal-ghazal-number-text">
-          <pre>
-            نسیم باد صبا دوشم آگهی آورد
-          </pre>
+        <div id="div-fal-ghazal-number-text" class="fal-ghazal-number-text">
+          <span id="fal-ghazal-text-verse-odd">مصرع اول</span>
+          <span id="fal-ghazal-text-verse-odd">مصرع دم</span>
         </div>
 
         <div class="fal-ghazal-music-prat"></div>
@@ -36,12 +36,9 @@
         </div>
 
         <div class="fal-ghazal-text">
-          <pre>
-روزهای غم و سختی به زودی تمام خواهد شد و خبرهای خوشی به شما
-میرسد. چنان ذوق زده خواهی شد که برای خودتان هم غیر قابل باور است
-مطمن باش که دیگر ناراحتی های تو دوام ندارد و به زودی روزگار خوشی فرا
-خواهد رسید.
-          </pre>
+          <div id="fal-ghazal-text-htmlExcerpt">
+
+          </div>
         </div>
       </div>
 
@@ -49,5 +46,52 @@
     </div>
   </div>
 </div>
+
+<div style="direction: ltr" id="test"></div>
 </body>
 </html>
+
+
+<script>
+
+  $(function () {
+    var falGhazalTitle = $('#fal-ghazal-title');
+    //var falGhazalHtmlText = $('#fal-ghazal-htmlText');
+    var falGhazalTextHtmlExcerpt = $('#fal-ghazal-text-htmlExcerpt');
+    var falGhazalTextVerseEven = $('#fal-ghazal-text-verse-even');
+    var falGhazalTextVerseOdd = $('#fal-ghazal-text-verse-odd');
+    var divFalGhazalNumberText = $('#div-fal-ghazal-number-text');
+
+    const url = 'https://ganjgah.ir/api/ganjoor/hafez/faal';
+    $.ajax(url, {
+      //type: 'post',
+      //dataType: 'json',
+      //        data: {
+      //          keyword: value
+      //        },
+      success: function (data) {
+        falGhazalTitle.html(data.title);
+
+        divFalGhazalNumberText.empty();
+
+        jQuery(data.verses).each(function (i, item) {
+          var number = item.vOrder
+
+          if (number % 2 == 0) {
+            divFalGhazalNumberText.append('<span id="fal-ghazal-text-verse-even">'+ item.text +'</span>');
+            divFalGhazalNumberText.append('<br>');
+          } else {
+            divFalGhazalNumberText.append('<span id="fal-ghazal-text-verse-odd">'+ item.text +'</span>');
+          }
+        })
+
+        jQuery(data.top6RelatedPoems).each(function (i, item) {
+          falGhazalTextHtmlExcerpt.html(item.htmlExcerpt);
+        })
+      }
+    });
+
+  });
+
+
+</script>

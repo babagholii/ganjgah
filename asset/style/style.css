@@ -357,9 +357,9 @@ a {
 .fal-part {
   position: absolute;
   width: 467px;
-  height: 614.04px;
+  height: 620px;
   right: 50px;
-  top: 60px;
+  top: 35px;
 
   background: rgba(236, 210, 118, 0.8);
   border-radius: 15px;
@@ -367,10 +367,10 @@ a {
 
 .fal-ghazal-number-part {
   position: absolute;
-  width: 436px;
-  height: 290px;
+  width: 440px;
+  height: 330px;
   right: 18px;
-  top: 20px;
+  top: 12px;
 
   background: #FFFFFF;
   border-radius: 15px;
@@ -378,7 +378,7 @@ a {
 
 .fal-ghazal-number-lbl {
   position: absolute;
-  width: 100px;
+  width: 120px;
   height: 20px;
   right: 150px;
   top: 15px;
@@ -394,11 +394,56 @@ a {
 
 .fal-ghazal-number-text {
   position: absolute;
-  width: 350px;
+  width: 420px;
   height: 205px;
 
-  right: 150px;
-  top: 50px;
+  right: 10px;
+  top: 40px;
+
+  text-align: center;
+}
+
+#fal-ghazal-text-verse-even, #fal-ghazal-text-verse-odd  {
+}
+
+#fal-ghazal-text-verse-odd  {
+  /*position: absolute;*/
+  width: 180px;
+  height: 18px;
+  right: 20px;
+  top: 10px;
+
+  font-family: A Rezvan;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.04em;
+
+  color: #171717;
+  float: right;
+  text-align: right;
+}
+
+
+#fal-ghazal-text-verse-even  {
+  /*position: absolute;*/
+  width: 180px;
+  height: 18px;
+  right: 878.76px;
+  top: 133.24px;
+
+  font-family: A Rezvan;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 14px;
+
+  margin-right: 50px;
+  color: #171717;
+
+  float: right;
+  text-align: right;
 }
 
 .fal-ghazal-music-prat {
@@ -406,7 +451,7 @@ a {
   width: 180px;
   height: 30px;
   right: 125px;
-  top: 250px;
+  top: 295px;
 
   background: rgba(239, 239, 239, 0.8);
   border: 1px solid #E5E5E5;
@@ -419,7 +464,7 @@ a {
   width: 436px;
   height: 212px;
   right: 18px;
-  top: 330px;
+  top: 350px;
 
   background: #FFFFFF;
   border-radius: 15px;
@@ -430,7 +475,7 @@ a {
   width: 100px;
   height: 20px;
   right: 20px;
-  top: 40px;
+  top: 12px;
 
   font-family: A Rezvan;
   font-style: normal;
@@ -448,7 +493,7 @@ a {
   width: 350px;
   height: 70px;
   right: 20px;
-  top: 80px;
+  top: 40px;
 
   font-family: A Rezvan;
   font-style: normal;
@@ -471,7 +516,7 @@ a {
   width: 150px;
   height: 40px;
   right: 150px;
-  top: 560px;
+  top: 570px;
 
   background: #DFE9F3;
   border-radius: 10px 0px;
