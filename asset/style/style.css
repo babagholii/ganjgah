@@ -370,6 +370,7 @@ a {
 
   background: rgba(236, 210, 118, 0.8);
   border-radius: 15px;
+  direction: rtl;
 }
 
 .fal-ghazal-number-part {
