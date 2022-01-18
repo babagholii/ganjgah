@@ -1,30 +1,16 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-  <!-- Favicon and touch icons -->
-  <!--  <link rel="shortcut icon" href="--><? //= baseUrl() ?><!--/image/project/logo-64.png">-->
-
-  <meta charset="utf-8">
-  <title></title>
-
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <link rel="stylesheet" href="asset/style/style.css">
-  <!--  <script src="--><? //= baseUrl() ?><!--/theme/page-home/asset/js/custom.js"></script>-->
-  <script src="asset/js/jquery-3.6.0.min.js"></script>
-
-</head>
-<body>
 <div class="detail-ganjoor-content-body">
-    <img src="image/detail-ganjoor-right-bg.png" class="detail-ganjoor-right-image">
-  <button class="detail-ganjoor-btn">بازگشت به صفحه اصلی</button>
+  <img src="image/detail-ganjoor-right-bg.png" class="detail-ganjoor-right-image">
+  <button class="detail-ganjoor-btn" id="btn-back-home">بازگشت به صفحه اصلی</button>
 
   <div class="detail-ganjoor-content">
+    <?$poetId = isset($_POST['poetId']) ? $_POST['poetId'] : 0;?>
+    <input id="detail-ganjoor-poet-id" type="hidden" value="<?= $poetId ?>">
+
+    <?$imageUrl = isset($_POST['imageUrl']) ? $_POST['imageUrl'] : "image/detail-ganjoor-img-poet.png";?>
+    <input id="detail-ganjoor-poet-imageUrl" type="hidden" value="<?= $imageUrl ?>">
 
     <div class="detail-ganjoor-ghazal-text-part1">
       <img src="image/detail-ganjoor-img-poet.png" id="detail-ganjoor-poet-image">
-
 
       <div class="detail-ganjoor-ghazal-text-part2">
         <div class="detail-ganjoor-ghazal-number-part">
@@ -38,9 +24,9 @@
 
       </div>
 
-      <img src="image/available-updates.png" class="detail-ganjoor-available-update-image">
+      <img src="image/available-updates.png" class="detail-ganjoor-available-update-image"
+           id="detail-ganjoor-btn-update">
     </div>
-
 
     <div class="detail-ganjoor-meaning-text-part">
       <div id="detail-ganjoor-meaning-text">
@@ -52,20 +38,65 @@
         ناوید ،یونثم هب ناوت‌یم وا راثآ زا .تفای تافو هینوق رد یرمق یرجه ۶۷۲ .درک هراشا هعبس سلاجم و هیفام هیف
       </div>
     </div>
-
   </div>
 </div>
 
-<div style="direction: ltr" id="test"></div>
-</body>
-</html>
-
-
 <script>
-
   $(function () {
+    var root = $('.detail-ganjoor-content-body').parent();
 
+    const btnBackHome = $('#btn-back-home');
+    btnBackHome.on('click', function () {
+      $.ajax({
+        url: 'home.php'
+      }).done(function (output) {
+        root.html(output);
+      });
+    });
+
+    var detailGanjoorImageUrl = $('#detail-ganjoor-poet-imageUrl');
+    var detailGanjoorPoetImage = $('#detail-ganjoor-poet-image');
+    detailGanjoorPoetImage.attr('src', 'https://ganjgah.ir' + detailGanjoorImageUrl.val());
+
+    var detailGanjoorPoetId = $('#detail-ganjoor-poet-id');
+    var poetId = detailGanjoorPoetId.val();
+
+    if (poetId != 0) {
+      ganjoorPoemRando(poetId);
+      var detailGanjoorBtnUpdate = $('#detail-ganjoor-btn-update');
+
+      detailGanjoorBtnUpdate.on('click', function() {
+        ganjoorPoemRando(poetId);
+      });
+    }
+
+    function ganjoorPoemRando(poetId) {
+      const url = 'https://ganjgah.ir/api/ganjoor/poem/random?poetId=' + poetId;
+      $.ajax(url, {
+        dataType: 'JSON',
+        success: function (data) {
+          var detailGanjoorGhazalNumber = $('#detail-ganjoor-ghazal-number');
+          detailGanjoorGhazalNumber.html(data.title);
+
+          var detailGanjoorGhazalText = $('#detail-ganjoor-ghazal-text');
+          detailGanjoorGhazalText.empty();
+
+          jQuery(data.verses).each(function (i, item) {
+            var number = item.vOrder
+
+            if (number % 2 == 0) {
+              detailGanjoorGhazalText.append('<span id="detail-ganjoor-ghazal-text-verse-even">' + item.text + '</span>');
+              detailGanjoorGhazalText.append('<br>');
+            } else {
+              detailGanjoorGhazalText.append('<span id="detail-ganjoor-ghazal-text-verse-odd">' + item.text + '</span>');
+            }
+          });
+
+          var detailGanjoorMeaningText = $('#detail-ganjoor-meaning-text');
+          detailGanjoorMeaningText.html(data.top6RelatedPoems[0].htmlExcerpt);
+        }
+      });
+    }
   });
-
 
 </script>

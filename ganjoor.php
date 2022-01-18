@@ -1,62 +1,108 @@
-<!DOCTYPE html>
-<html lang="fa">
-<head>
-  <!-- Favicon and touch icons -->
-  <!--  <link rel="shortcut icon" href="--><? //= baseUrl() ?><!--/image/project/logo-64.png">-->
-
-  <meta charset="utf-8">
-  <title></title>
-
-  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <link rel="stylesheet" href="asset/style/style.css">
-  <!--  <script src="--><? //= baseUrl() ?><!--/theme/page-home/asset/js/custom.js"></script>-->
-  <script src="asset/js/jquery-3.6.0.min.js"></script>
-
-</head>
-<body>
 <div class="ganjoor-content-body">
   <div class="ganjoor-content">
-    <button class="ganjoor-btn">بازگشت به صفحه اصلی</button>
-
-    <div class="ganjoor-ghazal-text-part">
-      <img src="image/ganjoor-left-bg.png" class="ganjoor-left-image">
-
-    </div>
+    <button class="ganjoor-btn" id="btn-back-home">بازگشت به صفحه اصلی</button>
 
 
     <div class="ganjoor-meaning-text-part"></div>
 
-    <div class="ganjoor-btn-left">
-      <img src="image/back.png" class="ganjoor-btn-left-img">
+
+    <div class="ganjoor-ghazal-text-part">
+      <img src="image/ganjoor-left-bg.png" class="ganjoor-left-image">
     </div>
 
-    <div class="ganjoor-btn-right">
-      <img src="image/forward.png" class="ganjoor-btn-right-img">
+    <div class="btn-part">
+      <div class="ganjoor-btn-left" id="ganjoor-btn-left-id">
+        <img src="image/back.png" class="ganjoor-btn-left-img">
+      </div>
+
+      <div class="ganjoor-btn-right" id="ganjoor-btn-right-id">
+        <img src="image/forward.png" class="ganjoor-btn-right-img">
+      </div>
     </div>
 
-
-    <div class="ganjoor-poet-part">
-
-      <div class="ganjoor-poet-item">
-        <img src="image/img-poet.png"  class="ganjoor-poet-item-img"/>
-        <div class="ganjoor-poet-item-lbl"></div>
-      </div >
+    <div class="ganjoor-poet-part1">
+      <div class="ganjoor-poet-part2" id="ganjoor-poet-part-id" data-transform="0"></div>
     </div>
+
   </div>
 </div>
 
-<div style="direction: ltr" id="test"></div>
-</body>
-</html>
-
-
 <script>
-
   $(function () {
+    var root = $('.ganjoor-content-body').parent();
+
+    const btnBackHome = $('#btn-back-home');
+    btnBackHome.on('click', function () {
+      $.ajax({
+        url: 'home.php'
+      }).done(function (output) {
+        root.html(output);
+      });
+    });
+
+    var ganjoorPoetPartId = $('#ganjoor-poet-part-id');
+    var ganjoorPoetItemTotalCount = 0;
+
+    const url = 'https://ganjgah.ir/api/ganjoor/poets';
+    $.ajax(url, {
+      dataType: 'JSON',
+      success: function (data) {
+        jQuery(data).each(function (i, item) {
+
+          var ganjoorPoetitemImg = '<img src="https://ganjgah.ir' + item.imageUrl + '" class="ganjoor-poet-item-img"/>';
+          var ganjoorPoetItemLbl = '<div class="ganjoor-poet-item-lbl">' + item.name + '</div>';
+
+          var ganjoorPoetItem = '<div onclick="openDetailGanjoor(' + item.id + ', \'' + item.imageUrl + '\')" class="ganjoor-poet-item">' + ganjoorPoetitemImg + ganjoorPoetItemLbl + '</div>';
+          ganjoorPoetPartId.append(ganjoorPoetItem);
+
+          ganjoorPoetItemTotalCount++;
+        });
+      }
+    });
+
+    var ganjoorBtnRightId = $('#ganjoor-btn-right-id');
+    var ganjoorBtnLeftId = $('#ganjoor-btn-left-id');
+
+    var widthValue = 227; //$('.ganjoor-poet-item').width();
+    const xValue = 187;
+
+    ganjoorBtnRightId.on('click', function () {
+      var translateX = ganjoorPoetPartId.data('transform');
+      var endTranslateX = (widthValue * (ganjoorPoetItemTotalCount - 3)) * -1;
+
+      if (translateX > endTranslateX) {
+        var whatever = translateX - xValue;
+        ganjoorPoetPartId.css('transform', "translateX(" + whatever + "px)");
+        ganjoorPoetPartId.data('transform', whatever);
+      }
+    });
+
+    ganjoorBtnLeftId.on('click', function () {
+      var translateX = ganjoorPoetPartId.data('transform');
+
+      if (translateX != 0) {
+        var whatever = translateX + xValue;
+        ganjoorPoetPartId.css('transform', "translateX(" + whatever + "px)");
+        ganjoorPoetPartId.data('transform', whatever);
+      }
+    });
 
   });
 
+  function openDetailGanjoor(poetId, imageUrl) {
+    var root = $('.ganjoor-content-body').parent();
+
+    $.ajax({
+      url: 'detail-ganjoor.php',
+      method: 'POST',
+      data: {
+        poetId: poetId,
+        imageUrl: imageUrl
+      }
+    }).done(function (output) {
+      root.empty();
+      root.html(output);
+    });
+  }
 
 </script>
